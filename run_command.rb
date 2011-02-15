@@ -32,7 +32,7 @@ end
 
 ttys.uniq.each do | tty_name |
   puts "#{tty_name} in loop"
-  unless tty_name == curr_tty
+  unless tty_name == curr_tty # want to filter out the current terminal, and perhaps run the command there last
     File.open(tty_name,'w') do | f |
       puts "Running #{command} on #{tty_name}"
       command.chars do | char |
